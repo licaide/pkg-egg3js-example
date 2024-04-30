@@ -1,0 +1,60 @@
+{
+  "name": "pkg-egg3js-example",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "egg": "^3.17.5",
+    "egg-scripts": "2.13.0"
+  },
+  "devDependencies": {
+    "egg-bin": "6",
+    "egg-mock": "5",
+    "eslint": "8",
+    "eslint-config-egg": "13",
+    "pkg": "^5.8.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-pkg-egg3js-example",
+    "stop": "egg-scripts stop --title=egg-server-pkg-egg3js-example",
+    "dev": "egg-bin dev",
+    "test": "npm run lint -- --fix && npm run test:local",
+    "test:local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "build": "pkg .",
+    "build:debug": "pkg . --debug"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT",
+  "pkg": {
+    "scripts": [
+      "./app/**/*",
+      "./config/**/*",
+      "./lib/**/*",
+      "./app.js",
+      "./agent.js",
+      "./.env"
+    ],
+    "assets": [
+      "./app/public/**/*",
+      "./node_modules/nanoid/**/*"
+    ],
+    "targets": [
+      "node18-linux-x64"
+    ],
+    "outputPath": "dist-linux"
+  },
+  "bin": "build.js"
+}
